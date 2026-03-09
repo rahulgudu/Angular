@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  imports: [],
-  templateUrl: './header.html',
-  styleUrl: './header.css',
+  templateUrl: './header.html'
 })
-export class Header {}
+export class HeaderComponent {
+
+  @Input() title!: string;
+
+  @Output() toggleSidebar = new EventEmitter<void>();
+
+}

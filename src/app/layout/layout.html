@@ -1,11 +1,26 @@
-<div class="flex h-screen bg-linear-to-b from-sky-100 via-sky-100 to-white">
+<div class="flex h-screen bg-gray-100">
 
   <!-- Sidebar -->
-  <app-sidebar class="w-64"></app-sidebar>
+  <app-sidebar
+    [collapsed]="sidebarCollapsed"
+    class="transition-all duration-300 overflow-hidden"
+    [ngClass]="sidebarCollapsed ? 'w-0' : 'w-64'"
+  ></app-sidebar>
 
-  <!-- Right Content -->
-  <div class="flex-1 p-6 overflow-y-auto">
-    <router-outlet></router-outlet>
+  <!-- Main Section -->
+  <div class="flex flex-col flex-1">
+
+    <!-- Header -->
+    <app-header
+      [title]="headerTitle"
+      (toggleSidebar)="toggleSidebar()"
+    ></app-header>
+
+    <!-- Page Content -->
+    <div class="p-6 flex-1 overflow-y-auto">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 
 </div>

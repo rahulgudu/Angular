@@ -1,1 +1,40 @@
-<p>header works!</p>
+<div class="h-16 bg-white border-b flex items-center justify-between px-6">
+
+  <!-- Left -->
+  <div class="flex items-center gap-4">
+
+    <button
+      (click)="toggleSidebar.emit()"
+      class="text-xl text-gray-600 hover:text-blue-500"
+    >
+      <i class="pi pi-angle-left"></i>
+    </button>
+
+    <h1 class="text-lg font-semibold text-blue-700">
+      {{ title }}
+    </h1>
+
+  </div>
+
+  <!-- Right Icons -->
+  <div class="flex items-center gap-5 text-gray-500">
+
+    <i class="pi pi-search cursor-pointer hover:text-blue-600"></i>
+
+    <i class="pi pi-cog cursor-pointer hover:text-blue-600"></i>
+
+    <div class="relative">
+      <i class="pi pi-bell cursor-pointer hover:text-blue-600"></i>
+      <span class="absolute -top-1 -right-1 bg-red-500 w-2 h-2 rounded-full"></span>
+    </div>
+
+    <img
+      src="https://i.pravatar.cc/40"
+      class="w-8 h-8 rounded-full"
+    />
+
+    <i class="pi pi-bars cursor-pointer hover:text-blue-600"></i>
+
+  </div>
+
+</div>

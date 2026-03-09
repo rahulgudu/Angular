@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForOf, NgClass } from "@angular/common";
 
 @Component({
@@ -7,6 +7,7 @@ import { NgForOf, NgClass } from "@angular/common";
   imports: [NgForOf, NgClass]
 })
 export class SidebarComponent {
+  @Input() collapsed = false;
 
   dashboards = [
     { name: 'Marketing', icon: 'pi pi-gauge', active: true },
