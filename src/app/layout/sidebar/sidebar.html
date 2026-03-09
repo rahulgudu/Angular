@@ -1,0 +1,48 @@
+<div class="h-full text-gray-300 border-r flex flex-col">
+  <!-- Logo -->
+  <div class="flex items-center gap-2 p-4 border-b">
+    <div
+      class="w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center text-white font-bold"
+    >
+      Ψ
+    </div>
+    <span class="text-lg font-semibold text-black">CRM Dashboard</span>
+  </div>
+
+  <!-- Menu -->
+  <div class="flex-1 overflow-y-auto p-3 text-sm scrollbar-hide">
+    <!-- DASHBOARDS -->
+    <p class="text-gray-900 font-semibold text-xs mb-2">DASHBOARDS</p>
+
+    <div
+      *ngFor="let item of dashboards"
+      class="flex items-center gap-3 p-2 rounded-lg cursor-pointer text-black hover:bg-gray-100"
+      [ngClass]="{ 'bg-gray-300 font-medium': item.active }"
+    >
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.name }}</span>
+    </div>
+
+    <!-- APPS -->
+    <p class="text-gray-900 font-semibold text-xs mt-6 mb-2">APPS</p>
+
+    <div
+      *ngFor="let item of apps"
+      class="flex items-center gap-3 p-2 rounded-lg cursor-pointer text-black hover:bg-gray-100"
+    >
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.name }}</span>
+    </div>
+
+    <!-- UI KIT -->
+    <p class="text-gray-900 font-semibold text-xs mt-6 mb-2">UI KIT</p>
+
+    <div
+      *ngFor="let item of uiKit"
+      class="flex items-center gap-3 p-2 rounded-lg cursor-pointer text-black hover:bg-gray-100"
+    >
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.name }}</span>
+    </div>
+  </div>
+</div>
