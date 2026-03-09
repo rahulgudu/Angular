@@ -1,9 +1,28 @@
-<h4>Add a Todo</h4>
-<div class="mb-3">
-  <label for="formGroupExampleInput" class="form-label">Example label</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
-</div>
-<div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Another label</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+<div class="my-3">
+  <h4>Add a Todo</h4>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title" class="form-label">Todo Title</label>
+      <input
+        type="text"
+        [(ngModel)]="title"
+        name="title"
+        class="form-control"
+        id="title"
+        placeholder="Add the todo"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description" class="form-label">Todo Description</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="description"
+        name="description"
+        id="description"
+        placeholder="Add Description"
+      />
+    </div>
+    <button type="submit" class="mt-2 btn btn-primary">Add Todo</button>
+  </form>
 </div>

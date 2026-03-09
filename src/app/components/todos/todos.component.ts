@@ -12,32 +12,29 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
   standalone: true,
 })
 export class TodosComponent {
+  localItem: string | null;
   todos: Todo[] = [];
   constructor() {
-    this.todos = [
-      {
-        sno: 3,
-        title: 'Go to the gym',
-        desc: 'Go to the gym at 6:00 PM',
-        active: true,
-      },
-      {
-        sno: 4,
-        title: 'Go to the market',
-        desc: 'Go to the market at 7:00 PM',
-        active: true,
-      },
-      {
-        sno: 5,
-        title: 'Go to the mall',
-        desc: 'Go to the mall at 8:00 PM',
-        active: true,
-      },
-    ];
+    this.localItem = localStorage.getItem('todos');
+    if (this.localItem === null) {
+      this.todos = [];
+    } else {
+      this.todos = JSON.parse(this.localItem);
+    }
   }
   deleteTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
     console.log('Todo deleted', todo);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+  addTodo(todo: Todo) {
+    this.todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+  toggleTodo(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    this.todos[index].active = !this.todos[index].active;
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 }
