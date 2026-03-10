@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
+import { provideHighcharts } from 'highcharts-angular';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -12,6 +13,7 @@ export const appConfig: ApplicationConfig = {
         preset: Aura,
       },
     }),
+    provideHighcharts(),
     provideRouter(routes),
   ],
 };
